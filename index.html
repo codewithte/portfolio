@@ -4,8 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+
+    <!-- link css -->
+    <link rel="stylesheet" href="CSS/style.css">
+     <!-- Link resposive -->
+    <link rel="stylesheet" href="CSS/responsive.css">
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
 </head>
 <body>
-    
+    <header>
+        <div class="portfolio">Zen<span>Code</span></div>
+        <nav>
+            <a href="#" class="navHome">Home</a>
+            <a href="#" class="navAbout">About</a>
+            <a href="#" class="navSkills">Skills</a>
+            <a href="#" class="navServices">Services</a>
+            <a href="#" class="navPortfolio">Portfolio</a>
+            <a href="#" class="navContact">Contact</a>
+        </nav>
+        <div class="night"> <span>|</span>
+            <input type="checkbox" class="toggle-Night" checked id="toggle-Night">
+            <i id="modeIcon" class="fa-solid fa-moon moon-icon"></i>
+            <button class="btnDownCV">Download CV <i class="fa-solid fa-download"></i></button>
+            <i class="fa-solid fa-bars menu-icon"></i>
+        </div>
+    </header>
+
+    <main>
+        <div class="profileNtext">
+            <div class="profile"><img src="images/Custom avatar.png" alt="img"></div>
+            <div class="intro">
+                <div class="top-intro">
+                    Hello, I'm <br>
+                    <h1>ZenCode</h1>
+                    <h3>And I'm a <span id="typingAnimation"></span></h3>
+                </div>
+                <div class="detail-intro">
+                    I'm a passionate web developer focused on building responsive and visually appealing websites. I enjoy turning complex problems into simple, elegant solutions using HTML, CSS, and JavaScript. Whether it's a landing page or a full website, I bring creativity, clean code, and a dedication to user experience. Let's build something great together!
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/codewithte"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="btnAction">
+                    <button class="btnHireMe">Hire Me</button>
+                    <button class="btnContactMe">Contact Me</button>
+                </div>
+            </div>
+        </div>
+        <div class="aboutme">
+            <div class="aboutme-pic"><img src="images/Avata-Portfolio.png"></div>
+            <div class="aboutme-text">
+                <h1>About Me</h1>
+                <p>
+                    Hi, I'm Te — a web developer passionate about building clean, scalable, and user-friendly digital experiences.
+                    <br>I specialize in modular JavaScript architecture, responsive UI design, and accessibility-first development. My projects often combine modern frameworks like Angular and Bootstrap with task automation tools
+                </p>
+                <div class="number-container">
+                    <div class="education-block">
+                        <h1>3+</h1>
+                        <p>Education</p>
+                    </div>
+                    <div class="exp-block">
+                        <h1>0</h1>
+                        <p>Years experience</p>
+                    </div>
+                    <div class="project-block">
+                        <h1>4+</h1>
+                        <p>Projects Completed</p>
+                    </div>
+                </div>
+                <button>Learn More</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        hi
+    </footer>
 </body>
+<script src="JS/script.js"></script>
 </html>

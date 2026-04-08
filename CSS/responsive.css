@@ -1,0 +1,57 @@
+@media (max-width: 1024px){
+    header{
+    padding: 0 1.7rem;
+  }
+  .portfolio{
+    font-size: 28px;
+  }
+  nav a{
+    font-size: 14px;
+      padding: 0 .5rem;
+  }
+  .profile img{
+    width: 380px;
+  }
+  .profile::before{
+    width: 370px;
+    height: 370px;
+  }
+
+
+ 
+}
+@media (max-width: 768px){
+  nav{
+    display: none;
+  }
+  .menu-icon{
+    display: block !important;
+  }
+  .profileNtext{
+    flex-direction: column;
+  }
+  .profile img{
+    width: 380px;
+  }
+  .profile::before{
+    width: 370px;
+    height: 370px;
+  }
+  .profileNtext{
+    align-items: center;
+}
+    
+}
+
+@media (max-width: 480px){
+  header{
+    padding: 0 1rem;
+  }
+  .profile img{
+    width: 300px;
+  }
+  .profile::before{
+    width: 290px;
+    height: 290px;
+  }
+}
