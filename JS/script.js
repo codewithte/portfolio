@@ -40,3 +40,19 @@ toggleNight.addEventListener('change',()=>{
 
     }
 })
+
+const menuIcon = document.getElementById("menu-icon");
+const nav = document.getElementById("nav");
+const navTitle = document.getElementById("navTitle");
+menuIcon.addEventListener('click', ()=>{
+    // nav.style.display = "flex";
+    nav.classList.add("show");
+    navTitle.classList.add("show");
+
+});
+const closeIcons = document.getElementById("closeIcon");
+closeIcons.addEventListener("click",()=>{
+    // nav.style.display = "none";
+    nav.classList.remove("show");
+})
+
