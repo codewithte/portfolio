@@ -8,7 +8,10 @@
 }
 }
 @media (max-width: 1090px){
-    header{
+  :root{
+    --sizes: 550px;
+  }
+  header{
     padding: 0 1.7rem;
   }
   .portfolio{
@@ -16,11 +19,7 @@
   }
   nav a{
     font-size: 14px;
-      padding: 0 .5rem;
-  }
-  .img-container{
-    width: 300px;
-    height: 300px;
+      padding: 0 0.5rem;
   }
   .profileNtext{
     flex-direction: column;
@@ -31,10 +30,6 @@
   }
   nav{
     display: block;
-  }
-  .avatar{
-    width: 300px;
-    height: 300px;
   }
   #navTitle{
     display: none;
@@ -48,12 +43,12 @@
   .intro{
     padding: 10px;
   }
-
-
-
  
 }
 @media (max-width: 810px){
+  :root{
+    --sizes: 450px;
+  }
   nav{
     display: none;
   }
@@ -69,7 +64,8 @@
     background-color: #0f172a28;
     backdrop-filter: blur(8px);
     height: auto;
-    padding: 50px 10px;
+    /* padding: 50px 10px; */
+    padding: 10px ;
     color: #90abd6;
     transition: all 2s;
     border: white solid .5px;
@@ -108,27 +104,95 @@
   .navHome::after{
     display: none;
   }
-  
+}
+
+@media (max-width: 600px){
+  :eoot{
+    --sizes: 300px;
+  }
+  main{
+    padding: 100px 28px;
+  }
+  .profile img{
+    width: 330px;
+  }
+  .profile::before{
+    width: 320px;
+    height: 320px;
+  }
 }
 
 @media (max-width: 480px){
+  :root{
+    --sizes: 300px
+  }
   header{
     padding: 0 1rem;
   }
   main{
-    padding: 100px 32px;
+    padding: 100px 18px;
+  }
+  .profileNtext{
+    margin-bottom: 30px;
   }
   .profile img{
-    width: 300px;
+    width: 250px;
   }
   .profile::before{
-    width: 290px;
-    height: 290px;
+    width: 240px;
+    height: 240px;
   }
   .intro h1{
     font-size: 32px;
   }
   .intro h3{
-    font-size: 19px;
+    font-size: 18px;
   }
+  .title{
+    width: 140px;
+  }
+  nav button{
+    display: block;
+  }
+  .night-mode{
+    display: flex;
+  }
+  .night :where(input, button){
+    display: none;
+  }
+  .moon{
+    display: none !important;
+  }
+  .btnHireMe,
+  .btnContactMe{
+    font-size: 15px;
+  }
+  .btnHireMe{
+    width: max-content;
+  }
+  .btnContactMe{
+    width: max-content;
+  }
+  .btnContactMe:hover{
+    width: max-content;
+  }
+  .aboutme-text{
+    padding: 0;
+  }
+  .aboutme-text h1{
+    font-size: 24px;
+    margin: 0;
+
+  }
+  .number-container{
+    padding-top: 20px;
+  }
+  .number-container h1{
+    font-size: 20px;
+  }
+  .number-container p{
+    font-size: 10px;
+  }
+  
+
 }
