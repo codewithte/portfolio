@@ -26,7 +26,22 @@ function type(){
 type();
 
 const toggleNight = document.getElementById("toggle-Night");
+const toggleNights = document.getElementById("toggle-Nights")
 toggleNight.addEventListener('change',()=>{
+    const modeIcon = document.getElementById("modeIcon");
+    if(toggleNight.checked){
+        document.body.classList.remove("dark-mode-off");
+        modeIcon.classList.remove("fa-sun");
+        modeIcon.classList.add("fa-moon");
+        
+    }else {
+        document.body.classList.add("dark-mode-off");
+        modeIcon.classList.add("fa-sun");
+        modeIcon.classList.remove("fa-moon");
+
+    }
+})
+toggleNights.addEventListener('change',()=>{
     const modeIcon = document.getElementById("modeIcon");
     if(toggleNight.checked){
         document.body.classList.remove("dark-mode-off");
