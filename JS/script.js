@@ -25,49 +25,44 @@ function type(){
 }
 type();
 
-const toggleNight = document.getElementById("toggle-Night");
-const toggleNights = document.getElementById("toggle-Nights")
-toggleNight.addEventListener('change',()=>{
-    const modeIcon = document.getElementById("modeIcon");
-    if(toggleNight.checked){
-        document.body.classList.remove("dark-mode-off");
-        modeIcon.classList.remove("fa-sun");
-        modeIcon.classList.add("fa-moon");
-        
-    }else {
-        document.body.classList.add("dark-mode-off");
-        modeIcon.classList.add("fa-sun");
-        modeIcon.classList.remove("fa-moon");
-
-    }
-})
-toggleNights.addEventListener('change',()=>{
-    const modeIcon = document.getElementById("modeIcon");
-    if(toggleNight.checked){
-        document.body.classList.remove("dark-mode-off");
-        modeIcon.classList.remove("fa-sun");
-        modeIcon.classList.add("fa-moon");
-        
-    }else {
-        document.body.classList.add("dark-mode-off");
-        modeIcon.classList.add("fa-sun");
-        modeIcon.classList.remove("fa-moon");
-
-    }
-})
+const toggleNights = document.querySelectorAll('.mode');
+toggleNights.forEach(toggle=>{
+    toggle.addEventListener('click',()=>{
+        const modeIcons = document.querySelectorAll('.moon-icon');
+        if(toggle.checked){
+            document.body.classList.remove("dark-mode-off");
+            modeIcons.forEach(modeIcon =>{
+                modeIcon.classList.remove("fa-sun");
+                modeIcon.classList.add("fa-moon");
+            })
+            toggleNights.forEach(togg =>{
+                togg.checked = true;
+            })
+        } else {
+            document.body.classList.add("dark-mode-off");
+            modeIcons.forEach(modeIcon =>{
+                modeIcon.classList.add("fa-sun");
+                modeIcon.classList.remove("fa-moon");
+            })
+            toggleNights.forEach(togg =>{
+                togg.checked = false;
+            })
+        }
+    })
+});
 
 const menuIcon = document.getElementById("menu-icon");
 const nav = document.getElementById("nav");
 const navTitle = document.getElementById("navTitle");
 menuIcon.addEventListener('click', ()=>{
-    // nav.style.display = "flex";
     nav.classList.add("show");
     navTitle.classList.add("show");
 
 });
 const closeIcons = document.getElementById("closeIcon");
 closeIcons.addEventListener("click",()=>{
-    // nav.style.display = "none";
     nav.classList.remove("show");
 })
+
+
 
