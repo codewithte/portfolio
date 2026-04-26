@@ -64,5 +64,17 @@ closeIcons.addEventListener("click",()=>{
     nav.classList.remove("show");
 })
 
+const iconJS = document.querySelector('.js');
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry =>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('rotatejs');
+        } else{
+            entry.target.classList.remove('rotatejs');
+        }
+    });
+})
+observer.observe(iconJS);
+
 
 
