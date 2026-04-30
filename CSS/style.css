@@ -22,13 +22,10 @@
     font-family: 'Poppin-Bold' ;
     src: url(../assets/Poppins-Bold.ttf);
 }
-
-
 body{
     font-family: 'Poppin';
     font-size: 16px;
 }
-
 header{
     width: 100%;
     height: 60px;
@@ -45,32 +42,11 @@ header{
     font-size: 32px;
     color: whitesmoke;
 }
-.title{
-    width: 200px;
-}
-svg path{
-    fill: transparent;
-    stroke: #ffffff;
-    stroke-width: 0.1;
-    stroke-dasharray: 40;
-    stroke-dashoffset: 40;
-    animation: textAnimation 2s ease-in-out forwards;
-}
-@keyframes textAnimation{
-    0%{
-        stroke-dashoffset: 40;
-    }
-    80%{
-        fill: transparent;
-    }
-    100%{
-        fill: white;
-        stroke-dashoffset: 0;
-    }
-}
-
 .portfolio span{
     color: var(--second-background);
+}
+.title{
+    width: 200px;
 }
 .navHome{
     position: relative;
@@ -203,7 +179,6 @@ main{
     transition: all 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-
 .toggle-Night:checked {
     background: linear-gradient(135deg, var(--second-background), var(--second-background));
 }
@@ -215,7 +190,6 @@ main{
 .toggle-Night:hover {
     box-shadow: 0 0 10px rgba(9, 99, 126, 0.3);
 }
-
 .intro{
     display: flex;
     flex-direction: column;
@@ -229,6 +203,27 @@ main{
 .intro h1{
     font-family: 'Poppin-Bold';
     font-size: 40px;
+}
+
+svg path{
+    fill: transparent;
+    stroke: #ffffff;
+    stroke-width: 0.1;
+    stroke-dasharray: 40;
+    stroke-dashoffset: 40;
+    animation: textAnimation 2s ease-in-out forwards;
+}
+@keyframes textAnimation{
+    0%{
+        stroke-dashoffset: 40;
+    }
+    80%{
+        fill: transparent;
+    }
+    100%{
+        fill: white;
+        stroke-dashoffset: 0;
+    }
 }
 .intro h3{
     font-size: 24px;
@@ -245,7 +240,6 @@ main{
 @keyframes cursor{
     to{border-left: 1px solid rgb(250, 196, 196);}
 }
-
 .detail-intro{
     padding: 1rem 0;
 }
@@ -403,7 +397,6 @@ main{
     justify-content: center;
     flex-grow: 1;
     padding: 0rem 1rem;
-    /* background-color: green; */
 }
 .aboutme-text h1{
     font-family: 'Poppin-Bold';
@@ -453,8 +446,6 @@ main{
 }
 
 
-
-
 /* My Skill */
 .MySkill{
     margin-top: 100px;
@@ -477,19 +468,12 @@ main{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
     gap: 10px;
     padding: 20px 0;
-    /* background-color: #90abd6; */
-    /* background: #384a73; */
     flex-wrap: wrap;
     
 }
 .skill{
-    /* width: 24%; */
-    /* min-width: 200px; */
     padding: 10px;
     border-radius: 8px;
     background: #090f20 ;
@@ -535,34 +519,171 @@ main{
 }
 .bar-percentage::before{
     content: '';
-    width: var(--percent);
-    background-color: #90abd6;
+    width: var(--percent) ;
     position: absolute;
     inset: 0;
     z-index: 2;
     border-radius: 10px;
-
 }
-
+.bar-percentage.animation::before{
+    animation: leftRight 0.8s ease-in;
+}
+@keyframes leftRight{
+    from{width: 0%;}
+    to{width: var(--percent);}
+}
+.barColor1::before{
+    background-color: #90abd6;
+}
+.barColor2::before{
+    background-color: #042f76;
+}
+.barColor3::before{
+    background-color: #14f300;
+}
+.barColor4::before{
+    background-color: #a60a2f;
+}
+.barColor5::before{
+    background-color: #4cfd29;
+}
+.barColor6::before{
+    background-color: #3884ff;
+}
+.barColor7::before{
+    background-color: #43f240;
+}
+.barColor8::before{
+    background-color: #ffb14b;
+}
 
 /* My Project */
 .myproject{
     margin-top: 100px;
 }
 
+.project-container{
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
 
+}
+.project:hover{
+    border: 1px solid white;
+    box-shadow: 0px 0px 5px var(--second-background),
+                0px 0px 10px var(--second-background),
+                0px 0px 30px var(--second-background);
+    transform: scale(1.01);
+    transition: 15ms;
+}
+.project{
+    border-radius: 8px;
+    background-color: #1e293b;
+}
+.pic img{
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+}
+.projectDetail{
+    line-height: 28px;
+    padding: 12px;
+}
+.projectLang{
+    font-size: 13px;
+}
+.projectLang span{
+    color: #ffffff;
+    padding: 3px 8px;
+    background-color: #39475e;
+    border-radius: 20px;
+    margin-right: 4px;
+}
 
+.projectTitle{
+    color: #ffffff;
+    font-size: 20px;
+}
+.projectDes{
+    color: #ccc;
+    font-size: 12px;
+}
+.projectBtn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.projectBtn a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+    width: 48%;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 7px;
+    font-size: 14px;
+    gap: 4px;
+}
+.projectBtn a:first-child{
+    background-color: #39475e;
 
+}
+.projectBtn a:first-child:hover,
+a:last-child:hover{
+    border: 1px solid white;
 
+}
+.projectBtn a:last-child{
+    background-color: var(--second-background);
+}
 
-
-
-
-
-
-
+/* Scroll Style */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track{
+    background-color:var(--background-color) ;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--second-background);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #a8c2ea;
+}
 
 footer{
-
-    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    background-color: var(--background-color);
+}
+.navigate, .copyright{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
+}
+.navigate a:nth-child(1),
+.navigate a:nth-child(2),
+.navigate a:nth-child(3){
+    text-decoration: none;
+    color: #ccc;
+    padding: 0 10px;
+}
+.navigate a:nth-child(4),
+.navigate a:nth-child(5),
+.navigate a:nth-child(6){
+    color: #595959;
+    padding: 0 4px;
+}
+footer .line{
+    width: 15%;
+    height: 1px;
+    background: #384a73;
+    margin: 20px 0;
 }
