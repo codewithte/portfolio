@@ -1,18 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 :root{
     --background-color: #0f172a; 
     --secondary-text: #94a3b8;
     --card-background: #1e293b;
     --second-background: #90abd6;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-4: 16px;
+    --space-8: 32px;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.5rem;
+    --text-big: 2rem;
+    --line-height: 1.6;
+    --padding-container: 2rem 4rem;
     --sizes: 600px;
-}
-.dark-mode-off{
-    --background-color:#90abd6 ; 
-    --second-background: #0f172a;
-}
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 @font-face {
     font-family: 'Poppin' ;
@@ -22,37 +29,67 @@
     font-family: 'Poppin-Bold' ;
     src: url(../assets/Poppins-Bold.ttf);
 }
+html{
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
 body{
     font-family: 'Poppin';
-    font-size: 16px;
+    background-color: var(--background-color);
+}
+.dark-mode-off{
+    --background-color:#90abd6 ; 
+    --second-background: #0f172a;
 }
 header{
+    position: fixed;
     width: 100%;
     height: 60px;
     display: flex;
-    position: fixed;
-    padding: 0 4rem;
     justify-content: space-between;
     align-items: center;
     background-color: var(--background-color);
+    padding: var(--padding-container);
     z-index: 99;
 }
 .portfolio{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 32px;
+    font-size: 2rem;
     color: whitesmoke;
 }
 .portfolio span{
     color: var(--second-background);
 }
-.title{
-    width: 200px;
-}
 .navHome{
     position: relative;
     color: var(--second-background);
 }
+.navHome:focus{
+    position: relative;
+    color: var(--second-background);
+}
+.navSkills:focus{
+    position: relative;
+    color: var(--second-background);
+}
+.navSkills:focus .navHome{
+    position: relative;
+    color: white !important ;
+}
 .navHome::after{
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 2.5px;
+    top: 50%;
+    left: 50%;
+    translate: -50% 500%;
+    background: linear-gradient(18deg,var(--second-background),var(--card-background),var(--second-background));
+    border-radius: 1px;
+    background-size: 200% 100%;
+    animation: colorRun 3s linear infinite;
+}
+.navSkills:focus .navSkills::after{
     content: '';
     position: absolute;
     width: 70%;
@@ -70,102 +107,60 @@ header{
     50%{background-position: 100% 50%;}
     100%{background-position: 0% 50% ;}
 }
-nav button{
+nav :is(button,h1,.night-mode){
     display: none;
-}
-nav h1{
-    display: none;
-}
-nav a:hover{
-    color: var(--second-background);
-    transition: .3s ease;
-}
-.night-mode{
-    display: none;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
-.night{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.night span{
-    color: var(--second-background);
-    font-size: 28px;
-    padding-right: 20px;
-}
-.menu-icon{
-    display: none !important;
-    color: wheat;
-    font-size: 30px;
-}
-.moon-icon{
-    font-size: 18px;
-    padding-left: 16px;
-    padding-right: 30px;
-    color: var(--second-background);
 }
 nav a{
     font-family: 'Poppin-Bold';
     text-decoration: none;
     font-size: 18px;
-    padding: 0 1rem;
-    color: white;
+    padding: 0 var(--text-base);
+    color: whitesmoke;
     transition: all 0.5s ease;
 }
-.btnDownCV{
-    background-color: rgb(219, 56, 56);
-    color: white;
-    font-size: 14px;
-    padding: .3rem;
-    border-radius: 3px;
+nav a:hover{
+    color: var(--second-background);
+    transition: .3s ease;
 }
-
-main{
-    padding: 8rem 5rem 0 5rem;
-    background-color: var(--background-color);
-}
-.profileNtext{
+.night{
     display: flex;
-    margin-bottom: 100px;
-}
-.profile{
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
-.profile img{
-    width: 500px;
-    border-radius: 50%;
-    position: relative;
-    z-index: 1;
+.night span{
+    color: var(--second-background);
+    font-size: var(--text-xl);
+    padding-right: var(--space-4);
 }
-.profile::before{
-    content: '';
-    position: absolute;
-    width: 485px;
-    height: 485px;
-    border-radius: 50%;
-    background-color: #032a84;
-    box-shadow: 0px 0px 10px var(--second-background),
-                0px 0px 20px var(--second-background),
-                0px 0px 40px var(--second-background);
-    border: 6px solid var(--second-background);    
+.menu-icon{
+    display: none !important;
+    font-size: var(--text-xl);
+    color: wheat;
+}
+.moon-icon{
+    font-size: var(--text-lg);
+    padding-left: 16px;
+    padding-right: 30px;
+    color: var(--second-background);
+}
+.btnDownCV{
+    font-size: var(--text-sm);
+    background-color: rgb(219, 56, 56);
+    color: whitesmoke;
+    padding: .3rem 0.6rem;
+    border-radius: 3px;
+    cursor: pointer;
 }
 .toggle-Night{
+    position: relative;
     width: 38px;
     height: 22px;
-    cursor: pointer;
-    appearance: none;
     background: #ccc;
+    appearance: none;
     border-radius: 25px;
-    outline: none;
     transition: all 0.3s ease;
-    position: relative;
+    outline: none;
+    cursor: pointer;
 }
 .toggle-Night::before {
     content: '';
@@ -182,29 +177,68 @@ main{
 .toggle-Night:checked {
     background: linear-gradient(135deg, var(--second-background), var(--second-background));
 }
-
 .toggle-Night:checked::before {
     left: 18px;
 }
-
 .toggle-Night:hover {
     box-shadow: 0 0 10px rgba(9, 99, 126, 0.3);
 }
+
+
+/* Main */
+main{
+    padding: var(--padding-container);
+}
+.profileNtext{
+    display: flex;
+    padding: var(--padding-container);
+    margin: calc(60px + 2rem) 0 100px 0;
+}
+.profile{
+    --size-img: 500px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: rotate 2s ease-in-out;
+}
+@keyframes rotate{
+    0%{opacity: 0; transform: scale(0) rotate(-180deg);}
+    60%{opacity: 1; transform: scale(1.1);}
+    100%{transform: scale(1) ;}
+}
+.profile img{
+    position: relative;
+    width: var(--size-img);
+    border-radius: 50%;
+    z-index: 1;
+}
+.profile::before{
+    content: '';
+    position: absolute;
+    width: calc(var(--size-img) - 15px);
+    height: calc(var(--size-img) - 15px);
+    background-color: #032a84;
+    box-shadow: 0px 0px 10px var(--second-background),
+                0px 0px 20px var(--second-background),
+                0px 0px 40px var(--second-background);
+    border: 6px solid var(--second-background);    
+    border-radius: 50%;
+}
+
 .intro{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #ffffff;
-    padding: 0 1rem 0 5rem;
+    color: whitesmoke;
+    padding: var(--padding-container);
 }
 .top-intro{
-    line-height: 36px;
+    line-height: 30px;
 }
-.intro h1{
-    font-family: 'Poppin-Bold';
-    font-size: 40px;
+.ZenCodeSVG{
+    width: 200px;
 }
-
 svg path{
     fill: transparent;
     stroke: #ffffff;
@@ -226,7 +260,7 @@ svg path{
     }
 }
 .intro h3{
-    font-size: 24px;
+    font-size: var(--text-xl);
 }
 .intro span{
     position: relative;
@@ -243,8 +277,9 @@ svg path{
 .detail-intro{
     padding: 1rem 0;
 }
-.social-icons a{
-    padding: 0 7px 0 0 ;
+.social-icons{
+    display: flex;
+    gap: var(--space-2);
 }
 .social-icons i{
     font-size: 30px;
@@ -270,13 +305,13 @@ svg path{
 }
 .btnHireMe,
 .btnContactMe{
-    font-size: 20px;
+    font-size: var(--text-lg);
     padding: .5rem 1rem;
     border-radius: 5px;
-    height: 50px;
+    /* height: 50px; */
 }
 .btnHireMe{
-    width: 110px;
+    /* width: 110px; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -316,7 +351,6 @@ svg path{
     padding-left: 12px;
     transition: width 0.3s ease 0.3s, opacity 0.3s ease 0.3s, padding 0.3s ease 0.3s;
 }
-
 .aboutme{
     display: flex;
 }
@@ -328,12 +362,11 @@ svg path{
     position: relative;
     width: var(--sizes);
     height: var(--sizes);
-    animation: popUp ease-in both;
+    animation: popUps ease-in both;
     animation-timeline: view();
-    /* animation-range: entry 6% cover 20%; */
     animation-range: 1% 1s entry 6%;
 }
-@keyframes popUp{
+@keyframes popUps{
     0%{opacity: 0;filter: blur(10px); transform: scale(0.5);}
     40%{opacity: 1; filter: blur(0px); transform: scale(1);}
 }
@@ -346,7 +379,6 @@ svg path{
 .js{
     width: calc(var(--sizes) * 0.12) !important;
     position: absolute;
-
     z-index: 9;
 }
 .rotatejs{
@@ -400,18 +432,39 @@ svg path{
 }
 .aboutme-text h1{
     font-family: 'Poppin-Bold';
-    font-size: 44px;
-    margin-bottom: 30px;
+    font-size: var(--text-big);
+    margin-bottom: var(--space-8);
     color: var(--second-background);
+}
+.popUp{
+    animation: popUp 1s ease-in-out;
+}
+.popDown{
+    animation: popDown 1s ease-in-out;
+}
+.popLeft{
+    animation: popLeft 1s ease-in-out;
+}
+@keyframes popUp{
+    from{transform: translateY(30px); opacity: 0;}
+    to{transform: translateX(0); opacity: 1;}
+}
+@keyframes popLeft{
+    from{opacity: 0; transform: translateX(60px);}
+    to{opacity: 1; transform: translateX(0);}
+}
+@keyframes popDown{
+    from{opacity: 0; transform: translateY(-20px);}
+    to{opacity: 1; transform: translateY(0);}
 }
 
 .aboutme-text p{
-    padding: 1rem;
+    padding: var(--space-4);
     color: white;
 }
 .aboutme-text button{
     width: fit-content;
-    font-size: 20px;
+    font-size: var(--text-lg);
     padding: .5rem .8rem;
     margin-top: 1.5rem;
     border-radius: 20px;
@@ -425,7 +478,6 @@ svg path{
     color: var(--background-color);
     background-color: var(--second-background);
 }
-
 .number-container{
     display: flex;
     text-align: center;
@@ -450,18 +502,18 @@ svg path{
 .MySkill{
     margin-top: 100px;
 }
-.myskill-txt{
+.myskillTxt{
     text-align: center;
     margin-bottom: 30px;
 }
-.myskill-txt h1{
+.myskillTxt h1{
     font-family: 'Poppin-Bold';
     color: white;
 }
-.myskill-txt span{
+.myskillTxt span{
     color: var(--second-background);
 }
-.myskill-txt p{
+.myskillTxt p{
     color: white;
 }
 .skill-container{
@@ -686,4 +738,12 @@ footer .line{
     height: 1px;
     background: #384a73;
     margin: 20px 0;
+}
+
+.pop{
+    animation: pop 1s ease-in-out;
+}
+@keyframes pop{
+    from{opacity: 0;}
+    to{opacity: 1;}
 }

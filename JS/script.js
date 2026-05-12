@@ -83,20 +83,55 @@ const observer = new IntersectionObserver((entries)=>{
     });
 }, {threshold: 0.5})
 observer.observe(iconJS);
-observer.observe(barPercent);   
+observer.observe(barPercent);  
 
+
+// Oberve About me Part
+const aboutmeText = document.querySelector('.aboutme-text');
+const aboutmeTitle = document.querySelector('.aboutMeTitle');
+const aboutmetext = document.querySelector('.aboutMeText');
+const aboutmeNumber = document.querySelector('.number-container');
+
+const observeAboutMe = new IntersectionObserver((entries)=>{
+    entries.forEach(entry =>{
+        if(entry.isIntersecting){
+            aboutmeTitle.classList.add('popDown');
+            aboutmetext.classList.add('popLeft');
+            aboutmeNumber.classList.add('popUp');
+
+        }
+    })
+})
+observeAboutMe.observe(aboutmeTitle);
+
+
+
+
+// Oberve My Skill
+const mySkill = document.querySelector('.MySkill');
+const myskillText = document.querySelector('.myskillText');
+const observeSkill = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            // alert("hi");
+            myskillText.classList.add('popUp');
+        }
+    })
+});
+observeSkill.observe(mySkill);
 
 //Generate Project
 const project = [
     {title:"CRUD Form",img:"crudForm.png",Des:"POS System with create, update, delete, add",lang:["Boostrap","Javascript"], linkCode: "https://github.com/codewithte/CRUD_Form", linkDemo: "https://crud-form-beta.vercel.app/"},
     {title:"E-Commerce",img:"shop.png",Des:"E-Commerce platform: Selling Product",lang:["HTML","CSS"], linkCode: "https://github.com/codewithte/TeTech", linkDemo: "https://codewithte.github.io/TeTech/"},
-    {title:"Form",img:"crudForm.png",Des:"POS System with create, update, delete, add",lang:["Boostrap","Javascript","Angular"], linkCode: "https://github.com/codewithte/CRUD_Form", linkDemo: "https://crud-form-beta.vercel.app/"},
+    {title:"Login Form",img:"Login-Form.png",Des:"Login Form",lang:["HTML","CSS"], linkCode: "https://github.com/codewithte/CRUD_Form", linkDemo: "https://crud-form-beta.vercel.app/"},
     {title:"Form",img:"crudForm.png",Des:"POS System with create, update, delete, add",lang:["Boostrap","Javascript","Angular"], linkCode: "https://github.com/codewithte/CRUD_Form", linkDemo: "https://crud-form-beta.vercel.app/"}
 ];
 const projectContainer = document.querySelector('.project-container');
 project.forEach(p=>{
     const project = document.createElement("div");
     project.classList.add('project');
+    // project.classList.add('popUp');
     const lang = p.lang.map(language => `<span>${language}</span>`).join("");
 
     project.innerHTML = `
@@ -120,6 +155,21 @@ project.forEach(p=>{
     `;
     projectContainer.appendChild(project);
 })
+const projects = document.querySelectorAll('.project');
+// Oberve My Project
+const myproject = document.querySelector('.myproject');
+const myprojectText = document.querySelector('.myprojectText');
+const oberveMyProject = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            myprojectText.classList.add('popUp');
+            setTimeout(()=> projects.forEach(p=>{
+                p.classList.add('popUp')
+            }), 150)
+        }
+    })
+})
+oberveMyProject.observe(myproject);
 
 const skills = [
     {lang:"HTML",img:"html.png", percent:"75%", color:'barColor1'},
@@ -127,13 +177,14 @@ const skills = [
     {lang:"Javascript",img:"js.png", percent:"45%", color:'barColor3'},
     {lang:"Typescript",img:"ts.png", percent:"10%", color:'barColor4'},
     {lang:"Angular",img:"angular.png", percent:"8%", color:'barColor5'},
-    {lang:"Vite",img:"Vite.png", percent:"0%", color:'barColor6'},
-    {lang:"Tailwinds",img:"tailwind.png", percent:"20%", color:'barColor7'},
-    {lang:"React",img:"react.png", percent:"2%", color:'barColor8'}
+    {lang:"Tailwinds",img:"tailwind.png", percent:"20%", color:'barColor6'},
+    {lang:"React",img:"react.png", percent:"2%", color:'barColor7'},
+    {lang:"Vite",img:"Vite.png", percent:"0%", color:'barColor8'}
 ];
 const skillContainer = document.querySelector('.skill-container');
 skills.forEach(skill=>{
     const container = document.createElement('div');
+    container.classList.add('skill')
     container.innerHTML=`
         <div class="header-skill">
             <div class="logo-skill"><img src="images/skill-logo/${skill.img}"></div>
